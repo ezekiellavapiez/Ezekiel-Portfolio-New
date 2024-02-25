@@ -1,14 +1,14 @@
 function pageTransition() {
   var tl = gsap.timeline();
 
-  tl.to(".transition", {
+  tl.to(".transitionz", {
     duration: 1,
     scaleY: 1,
     transformOrigin: "bottom",
     ease: "power4.inOut",
   });
 
-  tl.to(".transition", {
+  tl.to(".transitionz", {
     duration: 1,
     scaleY: 0,
     transformOrigin: "top",
@@ -19,7 +19,7 @@ function pageTransition() {
 
 function contentAnimation() {
   var tl = gsap.timeline();
-  tl.to("h1", {
+  tl.to("containerz", {
     top: 0,
     duration: 1,
     ease: "power3.inOut",
