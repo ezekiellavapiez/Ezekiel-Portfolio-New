@@ -9,7 +9,12 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  font-family: "Greycliff CF";
+  font-family: "Playfair Display", serif;
+  font-weight: 800;
+}
+a{
+  text-decoration: none;
+color: #fff;
 }
 .container h1 {
   width: 100%;
@@ -61,7 +66,7 @@ img {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background: url("https://res.cloudinary.com/ddyqlg6rj/image/upload/v1708799248/LandingPhoto_afbj6l.jpg");
+  background: url("https://res.cloudinary.com/ddyqlg6rj/image/upload/v1708799328/LandingPhoto_ffy9f6.jpg");
   color: #fff;
   display: flex;
   clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
