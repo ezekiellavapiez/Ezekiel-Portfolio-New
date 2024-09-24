@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Study (VYBE by BPI)</title>
+    <link rel="icon" type="image/x-icon" href="/Asset/Img/Me.ico">
+    <link rel="stylesheet" href="cs4.css" />
+  </head>
+  <body>
+    <div id="loading"></div>
+    <div class="slider-content">
+      <div class="slide-number">
+        <div class="prefix">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="postfix"><span></span> </div>
+      </div>
+
+      <div class="slide-name">
+        <div class="names">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+
+      <div class="slide-year">
+        <div class="years">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <div class="slider">
+      <div class="slide" id="slide-1">
+        <img src="https://res.cloudinary.com/ddyqlg6rj/image/upload/v1727199991/Case%20Study/CS4/Website_-_1_xw3ke7.png" alt="" />
+      </div>
+      <div class="slide" id="slide-2">
+        <img src="https://res.cloudinary.com/ddyqlg6rj/image/upload/v1727199755/Case%20Study/WIP_lryq0y.png" alt="" />
+      </div>
+      <div class="slide" id="slide-3">
+        <img src="" alt="" />
+      </div>
+      <div class="slide" id="slide-4">
+        <img src="" alt="" />
+      </div>
+      <div class="slide" id="slide-5">
+        <img src="" alt="" />
+      </div>
+      <div class="slide" id="slide-6">
+        <img src="" alt="" />
+      </div>
+      <div class="slide" id="slide-7">
+        <img src="" alt="" />
+      </div>
+      <div class="slide" id="slide-8">
+        <img src="" alt="" />
+      </div>
+      <div class="slide" id="slide-9">
+        <img src="" alt="" />
+      </div>
+      <div class="slide" id="slide-9">
+        <img src="https://res.cloudinary.com/ddyqlg6rj/image/upload/v1727166910/Case%20Study/CS1/Desktop_-_9_h44ahr.png" alt="" />
+      </div>
+      <div style="height: 100vh"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelectorAll(".slide");
+        let currentSlideIndex = 0;
+        let isAnimating = false;
+        let currentTopValue = 0;
+
+        const elements = [
+          { selector: ".prefix", delay: 0 },
+          { selector: ".names", delay: 0.15 },
+          { selector: ".years", delay: 0.3 },
+        ];
+
+        slides.forEach((slide, idx) => {
+          if (idx !== 0) {
+            const img = slide.querySelector("img");
+            gsap.set(img, { scale: 2, top: "4em" });
+          }
+        });
+
+        function showSlide(index) {
+          if (isAnimating) return;
+          isAnimating = true;
+          const slide = slides[index];
+          const img = slide.querySelector("img");
+
+          currentTopValue -= 30;
+
+          elements.forEach((elem) => {
+            gsap.to(document.querySelector(elem.selector), {
+              y: `${currentTopValue}px`,
+              duration: 2,
+              ease: "power4.inOut",
+              delay: elem.delay,
+            });
+          });
+
+          gsap.to(img, {
+            scale: 1,
+            top: "0%",
+            duration: 2,
+            ease: "power3.inOut",
+          });
+          gsap.to(
+            slide,
+            {
+              clipPath: "polygon(0 0%, 100% 0%, 100% 100%, 0 100%)",
+              duration: 2,
+              ease: "power4.inOut",
+              onComplete: () => {
+                isAnimating = false;
+              },
+            },
+            "<"
+          );
+        }
+
+        function hideSlide(index) {
+          if (isAnimating) return;
+          isAnimating = true;
+          const slide = slides[index];
+          const img = slide.querySelector("img");
+
+          currentTopValue += 30;
+          elements.forEach((elem) => {
+            gsap.to(document.querySelector(elem.selector), {
+              y: `${currentTopValue}px`,
+              duration: 2,
+              ease: "power4.inOut",
+              delay: elem.delay,
+            });
+          });
+
+          gsap.to(slide, {
+            clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)",
+            duration: 2,
+            ease: "power4.inOut",
+          });
+
+          gsap.to(img, {
+            scale: 2,
+            top: "4em",
+            duration: 2,
+            ease: "power3.inOut",
+          });
+
+          gsap.to(
+            slide,
+            {
+              clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)",
+              duration: 2,
+              ease: "power4.inOut",
+              onComplete: () => {
+                isAnimating = false;
+              },
+            },
+            "<"
+          );
+        }
+
+        window.addEventListener("wheel", (e) => {
+          if (isAnimating) return;
+          if (e.deltaY > 0 && currentSlideIndex < slides.length - 1) {
+            showSlide(currentSlideIndex + 1);
+            currentSlideIndex++;
+          } else if (e.deltaY < 0 && currentSlideIndex > 0) {
+            hideSlide(currentSlideIndex);
+            currentSlideIndex--;
+          }
+        });
+      });
+    </script>
+     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+     <script>
+        $(document).ready(function(){
+              $('div#loading').removeAttr('id');
+        });
+       var preloader = document.getElementById("loading");
+        window.addEventListener('load', function(){
+         preloader.style.display = 'none';
+          })
+   
+       function myFunction(){
+           preloader.style.display = 'none';
+       };
+   </script>
+  </body>
+</html>
