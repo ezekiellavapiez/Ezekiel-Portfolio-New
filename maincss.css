@@ -17,8 +17,49 @@ body {
   overflow: hidden;
   font-family: "Outfit", sans-serif;
   font-weight: 800;
+cursor: none;
 }
 
+.counter h1 {
+  position: absolute;
+  font-family: "MontLight";
+  font-size: 16px;
+  font-weight: lighter;
+  color: white !important;
+  margin: 20px;
+}
+.percent {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.2);
+  height: 140px;
+  width: 1px;
+  margin: -60px 0 0 40px;
+}
+
+/*---
+.percent {
+  position: fixed;
+  display: flex;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 100px;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.2);
+  height: 140px;
+  width: 1px;
+}
+--*/
+
+.fill {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  transition: background 0.15s ease;
+}
 
 .phoneContent {
   background-color: black;
@@ -135,7 +176,7 @@ h2 {
   justify-content: center;
 }
 
-#container .cursor {
+ .cursor {
   position: absolute;
   background: white;
   width: 8px;
@@ -149,7 +190,7 @@ h2 {
   transform: scale(0.8);
 }
 
-#container .cursor::before {
+ .cursor::before {
   content: "";
   width: 100%;
   height: 100%;
@@ -165,16 +206,16 @@ h2 {
   opacity: 0;
 }
 
-#container .cursor.active {
+ .cursor.active {
   opacity: 1;
   transform: scale(12);
 }
 
-#container .cursor.active::before {
+ .cursor.active::before {
   opacity: 1;
 }
 
-#container .cursor-follower {
+.cursor-follower {
   position: absolute;
   background: rgba(255, 255, 255, 0.1);
   width: 40px;
@@ -188,124 +229,29 @@ h2 {
   transform: translate(4px, 4px);
 }
 
-#container .cursor-follower.active {
+.cursor-follower.active {
   opacity: 0.3;
   transform: scale(0);
 }
-
-#container3 .portfolio-thumb {
+.slide-name {
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1);
 }
 
-#container3 .portfolio-thumb img {
+.slide-name img {
   max-width: 360px;
   opacity: 0.4;
   transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1);
   transform-origin: 100% center;
 }
-
-#container3 .portfolio-item:hover .portfolio-thumb {
+.slide-name:hover .portfolio-thumb {
   transform: translateX(-1.75rem);
 }
-
-#container3 .portfolio-item:hover .portfolio-thumb img {
+.slide-name:hover .portfolio-thumb img {
   opacity: 0.8;
   transform: scale(1.2);
 }
 
-
-#container3 .portfolio-thumb2 {
-  overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1);
-}
-
-#container3 .portfolio-thumb2 img {
-  max-width: 360px;
-  opacity: 0.4;
-  transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1);
-  transform-origin: 90% center;
-}
-
-#container3 .portfolio-item2:hover .portfolio-thumb2 {
-  transform: translateX(-1.75rem);
-}
-
-#container3 .portfolio-item2:hover .portfolio-thumb2 img {
-  opacity: 0.8;
-  transform: scale(1.2);
-}
-
-#container3 .portfolio-thumb3 {
-  overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1);
-}
-
-#container3 .portfolio-thumb3 img {
-  max-width: 360px;
-  opacity: 0.4;
-  transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1);
-  transform-origin: 90% center;
-}
-
-#container3 .portfolio-item3:hover .portfolio-thumb3 {
-  transform: translateX(-1.75rem);
-}
-
-#container3 .portfolio-item3:hover .portfolio-thumb3 img {
-  opacity: 0.8;
-  transform: scale(1.2);
-}
-
-.threecontent {
-  margin-bottom: 0;
-  color: #ff073a;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  font-family: "GoodTimes";
-}
-.threecontent1 p {
-  padding-left: 25%;
-  text-align: center;
-  color: white;
-  font-family: "MontLight";
-  max-width: 50%;
-}
-.threecontent .text {
-  position: relative;
-  color: #ff073a;
-  font-weight: 500;
-  font-size: 40px;
-  transform: scale(1);
-  padding: 30px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-#container3 .threecontent .text:before,
-.threecontent .text:after {
-  padding: 30px;
-  color: #ff073a;
-  content: attr(data-text);
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: black;
-  overflow: hidden;
-  top: 0;
-}
-#container3 .threecontent .text:before {
-  left: 3px;
-  text-shadow: -2px 0 red;
-  animation: glitch-1 2s linear infinite reverse;
-}
-#container3 .threecontent .text:after {
-  left: -3px;
-  text-shadow: -2px 0 blue;
-  animation: glitch-2 2s linear infinite reverse;
-}
 
 .slider {
   position: relative;
