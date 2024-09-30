@@ -1,3 +1,9 @@
+@media screen and (max-width: 600px) {
+  div{
+   display: none;
+  
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +18,16 @@ body {
   font-family: "Outfit", sans-serif;
   font-weight: 800;
 }
+
+
+.phoneContent {
+  background-color: black;
+  width: 100%;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 a{
 text-decoration: none;
 color: #fff;
@@ -66,7 +82,7 @@ img {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background: url("https://res.cloudinary.com/ddyqlg6rj/image/upload/v1708799328/LandingPhoto_ffy9f6.jpg");
+  background: url("https://res.cloudinary.com/ddyqlg6rj/image/upload/v1727719234/Case%20Study/LandingPhoto2_eqe94m.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
