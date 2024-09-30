@@ -17,7 +17,11 @@
     width: 100vw;
     height: 100vh;
   }
-  
+  .cursor h3{
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-weight: 200;
+  }
   .slide {
     position: absolute;
     bottom: 0;
